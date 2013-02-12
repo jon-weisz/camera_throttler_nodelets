@@ -1,0 +1,9 @@
+<launch>
+  <node pkg="nodelet" type="nodelet" name="nodelet_manager" args="manager" output="screen" />
+
+  <node pkg="nodelet" type="nodelet" name="data_throttle" args="load throttle_compressed_image::NodeletThrottleCompressedImage nodelet_manager" output="screen">
+    <remap from="topic_in"  to="/wide_stereo/right/image_color/compressed"/>
+    <remap from="topic_out" to="/wide_stereo/right/image_color/compressed_throttle"/>
+  </node>
+
+</launch>
